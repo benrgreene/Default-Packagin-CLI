@@ -5,12 +5,13 @@ const inquirer = require("inquirer")
 const chalk    = require("chalk")
 const shell    = require("shelljs")
 // Custom Modules
-const ArgLib        = require("./modules/ArgLib.js")
-const Installer     = require("./modules/Installer.js")
-const CreatePackage = require("./modules/CreatePackage.js")
-const UpdatePackage = require("./modules/UpdatePackage.js")
-const CreateWebpack = require("./modules/CreateWebpack.js")
-const UpdateWebpack = require("./modules/UpdateWebpack.js")
+const ArgLib         = require("./modules/ArgLib.js")
+const Installer      = require("./modules/Installer.js")
+const CreatePackage  = require("./modules/CreatePackage.js")
+const UpdatePackage  = require("./modules/UpdatePackage.js")
+const CreateWebpack  = require("./modules/CreateWebpack.js")
+const UpdateWebpack  = require("./modules/UpdateWebpack.js")
+const DefaultContent = require("./modules/DefaultContents.js")
 
 // Get CLI args
 const args = ArgLib.getArgObject()
@@ -19,6 +20,9 @@ const args = ArgLib.getArgObject()
 const run = async () => {
   Installer.setup()
   switch (args.main) {
+    case 'list':
+      handleCommand([], DefaultContent.displayDefaults)
+      break
     case 'create-package':
       handleCommand([], CreatePackage.create)
       break
@@ -26,7 +30,7 @@ const run = async () => {
       // Command Parameters:
       // action: (update dependency, remove dependency, add dependency, etc)
       // value: value to set 
-      handleCommand(['action', 'value'], UpdatePackage.update)
+      handleCommand(['action', 'dep', 'value'], UpdatePackage.update)
       break
     case 'update-default-package':
       handleCommand([], UpdatePackage.setDefault)

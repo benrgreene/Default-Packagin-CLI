@@ -1,4 +1,21 @@
+// Library helpers
+const shell     = require("shelljs")
+const inquirer  = require("inquirer")
+const chalk     = require("chalk")
+// custom settings
+const settings  = require("./Settings.js")
+
 module.exports = {
+  displayDefaults: () => {
+    let packageFile = `${settings.settingsFolder}/${settings.settingsPackageFile}`
+    if (shell.test('-f', packageFile)) {
+      let rawContent = shell.cat(packageFile)
+      let content    = JSON.parse(rawContent)
+      console.log(`Dependencies: ${JSON.stringify(content.dependencies, null, 2)}\nDev Dependencies:${JSON.stringify(content.devDependencies, null, 2)}`)
+    } else {
+      console.log(chalk.red(`Error: package file (${packageFile}) doesn't exist!`))
+    }
+  },
   defaultPackageContent: `{
   "name": "name",
   "version": "1.0.0",
