@@ -29,8 +29,9 @@ const run = async () => {
     case 'update-package':
       // Command Parameters:
       // action: (update dependency, remove dependency, add dependency, etc)
+      // dep: the dependenxy to update
       // value: value to set 
-      handleCommand(['action', 'dep', 'value'], UpdatePackage.update)
+      handleCommand(['action', 'dep'], UpdatePackage.update)
       break
     case 'update-default-package':
       handleCommand([], UpdatePackage.setDefault)
