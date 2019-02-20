@@ -1,21 +1,18 @@
 // Library helpers
 const shell          = require("shelljs")
 const DefaultContent = require("./DefaultContents.js")
-
-// Settings
-const settingsFolder      = '~/.brg-package-settings'
-const settingsPackageFile = 'default-package.json'
-const settingsWebpackFile = 'default-webpack.js'
+// Custom modules
+const settings  = require("./Settings.js")
 
 module.exports = {
   // Need to ensure that the default settings exist
   setup: (args) => {
-    let packageFile = `${settingsFolder}/${settingsPackageFile}`
-    let webpackFile = `${settingsFolder}/${settingsWebpackFile}`
+    let packageFile = `${settings.settingsFolder}/${settings.settingsPackageFile}`
+    let webpackFile = `${settings.settingsFolder}/${settings.settingsWebpackFile}`
     // Check the settings folder
-    if (!shell.test('-d', settingsFolder)) {
+    if (!shell.test('-d', settings.settingsFolder)) {
       console.log("Settings folder doesn't exist, creating folder")
-      shell.mkdir(settingsFolder)
+      shell.mkdir(settings.settingsFolder)
     }
     // check default package.json
     if (!shell.test('-f', packageFile)) {

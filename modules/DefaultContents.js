@@ -31,8 +31,7 @@ module.exports = {
 
 module.exports = {
     entry: {
-        'index': './src/index.js',
-        'app': './src/app.js',
+        index: './src/index.js'
     },
     output: {
         filename: '[name].build.js',

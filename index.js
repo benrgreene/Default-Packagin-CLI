@@ -8,6 +8,9 @@ const shell    = require("shelljs")
 const ArgLib        = require("./modules/ArgLib.js")
 const Installer     = require("./modules/Installer.js")
 const CreatePackage = require("./modules/CreatePackage.js")
+const UpdatePackage = require("./modules/UpdatePackage.js")
+const CreateWebpack = require("./modules/CreateWebpack.js")
+const UpdateWebpack = require("./modules/UpdateWebpack.js")
 
 // Get CLI args
 const args = ArgLib.getArgObject()
@@ -20,16 +23,20 @@ const run = async () => {
       handleCommand([], CreatePackage.create)
       break
     case 'update-package':
-      handleCommand([], CreatePackage.create)
+      // Command Parameters:
+      // action: (update dependency, remove dependency, add dependency, etc)
+      // value: value to set 
+      handleCommand(['action', 'value'], UpdatePackage.update)
       break
     case 'update-default-package':
-      handleCommand([], CreatePackage.create)
+      handleCommand([], UpdatePackage.setDefault)
       break
     case 'create-webpack':
-      handleCommand([], CreatePackage.create)
+      handleCommand([], CreateWebpack.create)
       break
-    case 'update-default-webpack':
-      handleCommand([], CreatePackage.create)
+    case 'update-webpack':
+      // file: the file to set as the default (default: 'webpack.config.js')
+      handleCommand([], UpdateWebpack.update)
       break
     default:
       console.log(`help`)
