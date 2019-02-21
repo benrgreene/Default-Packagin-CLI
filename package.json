@@ -1,6 +1,6 @@
 {
   "name": "brg-packaging",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easily create new packages using your default packages",
   "main": "index.js",
   "scripts": {
