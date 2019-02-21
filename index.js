@@ -49,7 +49,9 @@ const run = async () => {
       handleCommand([], UpdateWebpack.update)
       break
     default:
-      console.log(`help`)
+      console.log(`Commands: list, help, create-package, update-package, update-package-dep, create-webpack, update-webpack
+
+To get help on an individual command, type "help --command=<command>"`)
   }
 }
 

@@ -13,7 +13,7 @@ module.exports = {
       }
     })
     if (!toReturn.hasOwnProperty('main')) {
-      toReturn.main = 'help'
+      toReturn.main = ''
     }
     return toReturn
   },
