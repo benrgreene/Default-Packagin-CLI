@@ -1,5 +1,5 @@
 {
-  "name": "brg-packaging",
+  "name": "packaging",
   "version": "1.0.0",
   "description": "Easily create new packages using your default packages",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "brg-packaging": "./index.js"
+    "packaging": "./index.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
