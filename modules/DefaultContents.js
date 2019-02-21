@@ -42,7 +42,10 @@ module.exports = {
 
 module.exports = {
     entry: {
-        index: './src/index.js'
+        // Main front facing script
+        'index': './src/scripts/index.js',
+        // Styles
+        'main': './src/styles/main.scss'
     },
     output: {
         filename: '[name].build.js',
@@ -58,8 +61,29 @@ module.exports = {
                 }
             },
             {
-                test:/\.css$/,
-                use:['style-loader','css-loader']
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: {
+                            name: "[name].css",
+                        },
+                    },
+                    {
+                        loader: "extract-loader",
+                        options: {
+                            publicPath: "../",
+                        }
+                    },
+                    {
+                        loader: "css-loader",
+                    },
+                    {
+                        loader: "sass-loader", options: {
+                            sourceMap: true
+                        } 
+                    }
+                ],
             }
         ]
     },
