@@ -6,7 +6,7 @@ This adds a way to easily create default packages / dependencies and use them wh
 
 ### Create New Package
 
-Command: `<cmd> create-package`
+Command: `brg-packaging create-package`
 
 This creates a new "package.json" file at the current location. Uses the default package file as the template. 
 
@@ -14,7 +14,7 @@ Takes in no parameters.
 
 ### List Package Dependencies
 
-Command: `<cmd> list`
+Command: `brg-packaging list`
 
 Lists the default package dependencies (and dev dependencies)
 
@@ -22,19 +22,19 @@ Takes no arguments
 
 ### Update Package Dependencies
 
-Command: `<cmd> update-package-dep --action=<action> --dep=<dependency-name> --value=<value>`
+Command: `brg-packaging update-package-dep --action=<action> --dep=<dependency-name> --value=<value>`
 
 Update a single dependency in the default package.json template.
 
 ### Save Default Package
 
-Command: `<cmd> update-package --file=<new-template-file>`
+Command: `brg-packaging update-package --file=<new-template-file>`
 
 Set's the contents of the default package.json template
 
 ### Create Webpack File
 
-Command: `<cmd> create-webpack`
+Command: `brg-packaging create-webpack`
 
 This creates a new "webpack.config.js" file at the current location. Uses the default webpack file as the template. 
 
@@ -42,7 +42,7 @@ Takes in no parameters.
 
 ### Set Default Webpack File
 
-Command: `<cmd> update-webpack --file=<new-template-file>`
+Command: `brg-packaging update-webpack --file=<new-template-file>`
 
 This sets the default webpack file contents to be the contents of another file. 
 
