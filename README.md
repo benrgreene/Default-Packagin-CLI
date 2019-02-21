@@ -22,11 +22,15 @@ Takes no arguments
 
 ### Update Package Dependencies
 
-Command: `<cmd> update-package --action=<action> --dep=<dependency-name> --value=<value>`
+Command: `<cmd> update-package-dep --action=<action> --dep=<dependency-name> --value=<value>`
+
+Update a single dependency in the default package.json template.
 
 ### Save Default Package
 
 Command: `<cmd> update-package --file=<new-template-file>`
+
+Set's the contents of the default package.json template
 
 ### Create Webpack File
 

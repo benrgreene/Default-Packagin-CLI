@@ -36,12 +36,6 @@ module.exports = {
     "babel-preset-react": "^6.24.1",
     "webpack": "^4.18.0",
     "webpack-cli": "^3.1.0"
-  },
-  "dependencies": {
-    "chalk": "^2.4.2",
-    "download-git-repo": "^1.1.0",
-    "inquirer": "^6.2.2",
-    "shelljs": "^0.8.3"
   }
 }`,
   defaultWebpackContent: `const path = require('path');
@@ -70,5 +64,12 @@ module.exports = {
         ]
     },
     mode: 'development'
-}`
+}`,
+  helpContent: `Here's a list of possible commands:
+list
+create-package
+update-package-dep
+update-package
+create-webpack
+update-webpack`
 }

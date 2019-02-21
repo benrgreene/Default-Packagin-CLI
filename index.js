@@ -12,6 +12,7 @@ const UpdatePackage  = require("./modules/UpdatePackage.js")
 const CreateWebpack  = require("./modules/CreateWebpack.js")
 const UpdateWebpack  = require("./modules/UpdateWebpack.js")
 const DefaultContent = require("./modules/DefaultContents.js")
+const Help           = require("./modules/Help.js")
 
 // Get CLI args
 const args = ArgLib.getArgObject()
@@ -23,17 +24,21 @@ const run = async () => {
     case 'list':
       handleCommand([], DefaultContent.displayDefaults)
       break
+    case 'help':
+      handleCommand(['command'], Help.help)
+      break
     case 'create-package':
       handleCommand([], CreatePackage.create)
       break
-    case 'update-package':
+    case 'update-package-dep':
       // Command Parameters:
       // action: (update dependency, remove dependency, add dependency, etc)
       // dep: the dependenxy to update
       // value: value to set 
+      // isDev: whether to update devDependencies or dependencies
       handleCommand(['action', 'dep'], UpdatePackage.update)
       break
-    case 'update-default-package':
+    case 'update-package':
       handleCommand([], UpdatePackage.setDefault)
       break
     case 'create-webpack':
